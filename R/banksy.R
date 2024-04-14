@@ -139,7 +139,7 @@ get_data <- function(object, assay, slot, features, verbose) {
     if (features[1] != 'all') {
         if (verbose) message('Subsetting by features')
         if (features[1] == 'variable') {
-            feat <- Seurat::VariableFeatures(object)
+            feat <- Seurat::VariableFeatures(object, assay=assay)
             if (length(feat) == 0) {
                 warning('No variable features found. Running Seurat::FindVariableFeatures')
                 object <- Seurat::FindVariableFeatures(object)
